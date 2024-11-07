@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #miobottone1 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        }
+
+        #miobottone1:hover {background-color: #3e8e41}
+
+        #miobottone1:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        }
+
+        #miobottone2 {
+        position: relative;
+        background-color: #04AA6D;
+        border: none;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+        }
+
+        #miobottone2:after {
+        content: "";
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+        }
+
+        #miobottone2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+        }
+
+    #miobottone3 {
+        background-color: cyan;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        La mia prima pagina HTML con javascript
+        evidenzia il funzionamento degli eventi associati
+        al premere di un bottone
+        Il comando "button" è un tag html
+        utilizzo il bottone come piace a me!<br>
+
+        <input type="text" id="mioInput">
+        <button id="miobottone1" onclick="inviaInput()">Invia</button><br><br>
+    </p>
+
+    <script>
+        function inviaInput() {
+            let str = document.getElementById("mioInput").value;
+            alert("Ciao ho ricevuto come input il seguente testo: " + str);
+        }
+    </script>
+</body>
+</html>
