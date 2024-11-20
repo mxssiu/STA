@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
+
+    #miobottone1 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        }
+
+        #miobottone1:hover {background-color: #3e8e41}
+
+        #miobottone1:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        }
+
     #container1{
         padding:20px;
         border:1px solid black;
@@ -22,7 +46,7 @@
     <label for="input2">Inserisci secondo valore</label>
     <input id="input2" type="number">
     <p>  </p>
-    <button onclick="calcolaRisultato()">Calcola</button>
+    <button onclick="calcolaRisultato()" id="miobottone1">Calcola</button>
     <p id="out1"></p>
    </div>
 
