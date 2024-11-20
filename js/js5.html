@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #miobottone1 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        }
+
+        #miobottone1:hover {background-color: #3e8e41}
+
+        #miobottone1:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        }
+
+    #container1{
+        padding:20px;
+        border:1px solid black;
+        background-image: url("mountains.jpg");
+        margin:10px;
+        height: 100%;
+        width: 90%;
+    }
+
+    label {
+        color: white;
+        font-size: 25px;
+    }
+</style>
+</head>
+<body>
+   <div id="container1">
+    <label for="input1">Inserisci primo valore</label>
+    <input id="input1" type="number"><br>
+    <label for="input2">Inserisci secondo valore</label>
+    <input id="input2" type="number">
+    <p>  </p>
+    <button onclick="calcolaRisultato()" id="miobottone1">Calcola</button>
+    <p id="out1"></p>
+   </div>
+
+   <center>
+    <div id="container1">
+        <h1 style="color: white;">Calcolo trekking</h1>
+        <label for="input1">Orario di partenza: </label>
+        <input id="input1" type="number"><br><br>
+        <label for="input2">Cima: </label>
+        <input id="input2" type="number"><br><br>
+        <label for="input3">Orario di ritorno: </label>
+        <input id="input3" type="number"><br><br>
+        <p>  </p>
+        <button onclick="calcolaTempo()" id="miobottone1">Calcola</button>
+        <p id="outTempo"></p>
+       </div>
+   </center>
+
+   <script>
+    function calcolaTempo(){
+        let start;
+        let ritorno;
+        let percorso;
+
+        start = parseInt(document.getElementById("input1").value);
+        ritorno = parseInt(document.getElementById("input3").value);
+        
+        if (ritorno > start ) {
+            percorso = ritorno-start;
+            document.getElementById("outTempo").innerHTML = percorso;
+        } else {
+            document.getElementById("outTempo").innerHTML = "Il tempo di ritorno deve essere maggiore di quello di partenza";
+        }
+
+    }
+
+    function calcolaRisultato(){
+        let n;
+        let n2;
+        let res;
+        n=document.getElementById("input1").value;
+        n2=document.getElementById("input2").value;
+        res=n*n2;
+        document.getElementById("out1").innerHTML = res;
+    }
+
+   </script>
+</body>
+</html>
