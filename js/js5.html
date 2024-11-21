@@ -58,35 +58,51 @@
     <div id="container1">
         <h1 style="color: white;">Calcolo trekking</h1>
         <label for="input1">Orario di partenza: </label>
-        <input id="input1" type="number"><br><br>
+        <input id="partenzaOre" type="number"><input id="partenzaMin" type="number"><br><br>
         <label for="input2">Cima: </label>
         <input id="input2" type="number"><br><br>
         <label for="input3">Orario di ritorno: </label>
-        <input id="input3" type="number"><br><br>
+        <input id="arrivoOre" type="number"><input id="arrivoMin" type="number"><br><br>
         <p>  </p>
-        <button onclick="calcolaTempo()" id="miobottone1">Calcola</button>
+        <button onclick="calcolaTempo();" id="miobottone1">Calcola</button>
         <p id="outTempo"></p>
        </div>
    </center>
 
    <script>
-    function calcolaTempo(){
-        let start;
-        let ritorno;
-        let percorso;
 
-        start = parseInt(document.getElementById("input1").value);
-        ritorno = parseInt(document.getElementById("input3").value);
-        
-        if (ritorno > start ) {
-            percorso = ritorno-start;
-            document.getElementById("outTempo").innerHTML = percorso;
-        } else {
-            document.getElementById("outTempo").innerHTML = "Il tempo di ritorno deve essere maggiore di quello di partenza";
-        }
+    function calcolaDifferenza(ora1, minuto1, ora2, minuto2) {
+        const minutiTotali1 = (ora1 * 60) + minuto1;
+        const minutiTotali2 = (ora2 * 60) + minuto2;
 
+        const differenza = Math.abs(minutiTotali1 - minutiTotali2);
+
+        return differenza;
     }
 
+    function calcolaTempo(){
+        let startOre;
+        let startMin;
+        let arrivoOre;
+        let arrivoMin;
+        let percorso;
+        let differenza;
+
+        startOre = document.getElementById("partenzaOre").value;
+        startMin = document.getElementById("partenzaMin").value;
+
+        arrivoOre = document.getElementById("arrivoOre").value;
+        arrivoMin = document.getElementById("arrivoMin").value;
+
+        if (startOre > arrivoOre) {
+            document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
+        } else if (startMin > arrivoMin) {
+                document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
+        } else {
+            differenza = calcolaDifferenza(startOre, startMin, arrivoOre, arrivoMin);
+            document.getElementById("outTempo").innerHTML = "La sessione di trekking è durata " + differenza + " minuti";
+        }
+    }
     function calcolaRisultato(){
         let n;
         let n2;
