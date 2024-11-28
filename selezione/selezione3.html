@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giorno della settimana</title>
+</head>
+<body>
+    <script>
+        let giorno;
+        let numero = parseInt(prompt("Inserisci un numero da 1 a 7: "));
+        if (numero == 1) {
+            giorno = "Lunedì";
+        } else if (numero == 2) {
+            giorno = "Martedì";
+        } else if (numero == 3) {
+            giorno = "Mercoledì";
+        } else if (numero == 4) {
+            giorno = "Giovedì";
+        } else if (numero == 5) {
+            giorno = "Venerdì";
+        } else if (numero == 6) {
+            giorno = "Sabato";
+        } else if (numero == 7) {
+            giorno = "Domenica";
+        } else {
+            giorno = "Il numero non è valido";
+        }
+
+        if (giorno == "Il numero non è valido") {
+            alert("Il numero non è valido");
+        } else {
+            alert("Il numero " + numero + " equivale al giorno " + giorno);
+        }
+    </script>
+</body>
+</html>
