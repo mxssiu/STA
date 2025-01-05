@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <input id="stringa1" placeholder="Primo valore"><br>
+  <input id="stringa2" placeholder="Secondo valore"><br>
+  <button onclick="controllaStringa();">Controlla</button>
+  <p id="output"></p>
+
+  <script>
+  function controllaStringa() {
+  	let prima = document.getElementById("stringa1").value;
+    let seconda = document.getElementById("stringa2").value;
+    
+    document.getElementById("output").innerHTML = (prima.length > 8 && seconda.length > 8);
+   }
+  </script>
+</body>
+</html>
