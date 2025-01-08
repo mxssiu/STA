@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizi JS</title>
+</head>
+<body>
+    <h1>Accesso</h1>
+    <input type="number" id="eta" placeholder="Età">
+    <button onclick="controllaEta();">Controlla età</button>
+    <h3 id="output"></h3>
+    <script>
+        function controllaEta() {
+            let eta = parseInt(document.getElementById("eta").value);
+            if ( eta >= 18) {
+                document.getElementById("output").innerHTML = "Accedi al sistema";
+            } else {
+                let differenza = 18-eta;
+                document.getElementById("output").innerHTML = "Puoi accedere al sistema tra " + differenza + " anni";
+            }
+        }
+    </script>
+</body>
+</html>
