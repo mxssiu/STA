@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova abitanti città</title>
+</head>
+<body>
+    <input type="text" id="citta" placeholder="Città"><br>
+    <button onclick="ottieniAbitanti();">Ottieni abitanti</button>
+    <p>Abitanti: <b id="output">0</b></p>
+
+    <script>
+        function ottieniAbitanti() {
+            let citta = document.getElementById("citta").value;
+            
+            if (citta === "torino") {
+                document.getElementById("output").innerHTML = "853,477";
+            } else if (citta === "nichelino") {
+                document.getElementById("output").innerHTML = "47,791";
+            } else if (citta === "moncalieri") {
+                document.getElementById("output").innerHTML = "55,984";
+            } else if (citta === "vinovo") {
+                document.getElementById("output").innerHTML = "15,348";
+            } else if (citta === "rivoli") {
+                document.getElementById("output").innerHTML = "46,610";
+            } else if (citta === "collegno") {
+                document.getElementById("output").innerHTML = "48,137";
+            } else if (citta === "settimo") {
+                document.getElementById("output").innerHTML = "19,939";
+            } else if (citta === "chieri") {
+                document.getElementById("output").innerHTML = "13,694";
+            } else {
+                document.getElementById("output").innerHTML = "-";
+            }
+        }
+    </script>
+</body>
+</html>
