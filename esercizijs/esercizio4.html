@@ -20,8 +20,9 @@
             let m = document.getElementById("meseNascita").value;
             let anno = document.getElementById("annoNascita").value;
             let anni = 2025-anno;
+            let numeroMese;
 
-            if ( m === "gennaio" ) { let numeroMese = 1} else if ( m === "febbraio" ) { let numeroMese = 2} else if ( m === "marzo" )  { let numeroMese = 3} else if ( m === "aprile" ) { let numeroMese = 4} else if ( m === "maggio" ) { let numeroMese = 6} else if ( m === "giugno" ) { let numeroMese = 7}else if ( m === "luglio" ) { let numeroMese = 8}else if ( m === "agosto" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}
+            if ( m === "gennaio" ) { numeroMese = 1} else if ( m === "febbraio" ) { let numeroMese = 2} else if ( m === "marzo" )  { let numeroMese = 3} else if ( m === "aprile" ) { let numeroMese = 4} else if ( m === "maggio" ) { let numeroMese = 6} else if ( m === "giugno" ) { let numeroMese = 7}else if ( m === "luglio" ) { let numeroMese = 8}else if ( m === "agosto" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}else if ( m === "aprile" ) { let numeroMese = 4}
 
             document.getElementById("output").innerHTML = "Numero del mese: " + numeroMese + "<br>" + "Anni: " + anni;
         }
