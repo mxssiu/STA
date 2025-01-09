@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stima Valore Immobiliare</title>
+</head>
+<body>
+    <input type="number" id="distanza" placeholder="Distanza dal mare"><br>
+    <button onclick="calcolaValore();">Calcola costo</button>
+    <p id="output"></p>
+
+    <script>
+        function calcolaValore() {
+            let distanza = Number(document.getElementById("distanza").value);
+
+            if (distanza < 100) {
+                document.getElementById("output").innerHTML = "Il costo al metro quadrato è di <b>10000 euro</b>";
+            } else {
+                document.getElementById("output").innerHTML = "Il costo al metro quadrato è di <b>7000 euro</b>";
+            }
+        }
+    </script>
+</body>
+</html>
