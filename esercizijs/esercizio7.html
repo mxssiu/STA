@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="citta" placeholder="Città"><br>
+    <input type="number" id="mqcasa" placeholder="Metri quadri casa"><br>
+    <input type="number" id="dist" placeholder="Distanza dal mare"><br>
+    <button onclick="calcolaValore()">Calcola valore immobiliare</button>
+    <p>Valore della casa: <b id="valore"></b></p>
+
+    <script>
+        function calcolaValore() {
+            let citta = document.getElementById("citta").value;
+            let mq = Number(document.getElementById("mqcasa").value);
+            let dist = Number(document.getElementById("dist").value);
+
+            let valore = 0;
+            if (citta === "genova") {
+                valore = valore + 5000;
+
+            } else if (citta === "savona") {
+                valore = valore + 7000;
+            } else if (citta === "imperia") {
+                valore = valore + 6000;
+            }
+
+            if ( dist < 100 ) {
+                valore = valore + 3000;
+            } else if ( 100 < dist < 500 ) {
+                valore = valore + 1500;
+            } else if ( dist > 1000 ) {
+                valore = valore + 500;
+            }
+
+            document.getElementById("valore").innerHTML = valore + "€";
+        }  
+    </script>
+</body>
+</html>
