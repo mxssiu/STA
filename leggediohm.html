@@ -6,19 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="number" id="numeroFormula" placeholder="Numero formula da usare"><br>
+    <p><input type="number" id="numeroFormula" placeholder="Numero formula da usare"><button onclick="scegliFormula();">Scegli formula</button></p>
     <div id="datiAggiuntivi"></div>
-    <button onclick="scegliFormula();">Scegli formula</button>
-    <p>Risultato: <b id="output"></b></p>
 
     <script>
+        function calcola() {
+            let i = document.getElementById("varI");
+            let r = document.getElementById("varR");
+            let v = document.getElementById("varV");
+
+            if (i && r) {
+                let sol = Number(i.value) * Number(r.value);
+                document.getElementById("output").innerHTML = "V = " + i.value + " * " + r.value + " = " + sol;
+            }
+
+            if (v && r) {
+                let sol = Number(v.value) / Number(r.value);
+                document.getElementById("output").innerHTML = "I = " + v.value + " : " + r.value + " = " + sol;
+            }
+
+            if (v && i) {
+                let sol = Number(v.value) / Number(i.value);
+                document.getElementById("output").innerHTML = "R = " + v.value + " : " + i.value + " = " + sol;
+            }
+            
+        }
+
         function scegliFormula() {
             let numeroFormula = Number(document.getElementById("numeroFormula").value);
 
             if ( numeroFormula === 1) { //V=I⋅R
-                document.getElementById("datiAggiuntivi").innerHTML = '<input id="varI" type="number" placeholder="Valore di I"><br><input id="varR" type="number" placeholder="Valore di R"><br>';
+                document.getElementById("datiAggiuntivi").innerHTML = '<input id="varI" type="number" placeholder="Valore di I"><br><input id="varR" type="number" placeholder="Valore di R"><br><button onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
             } else if ( numeroFormula === 2 ) { //I=V/R​
-
+                document.getElementById("datiAggiuntivi").innerHTML = '<input id="varV" type="number" placeholder="Valore di V"><br><input id="varR" type="number" placeholder="Valore di R"><br><button onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
+            } else if ( numeroFormula === 3 ) { //R=V/I
+                document.getElementById("datiAggiuntivi").innerHTML = '<input id="varV" type="number" placeholder="Valore di V"><br><input id="varI" type="number" placeholder="Valore di I"><br><button onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
+            } else {
+                document.getElementById("datiAggiuntivi").innerHTML = "<b>Inserisci un numero da 1 a 3</b>";
             }
         }
     </script>
