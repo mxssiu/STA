@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="numeroFormula" placeholder="Numero formula da usare"><br>
+    <div id="datiAggiuntivi"></div>
+    <button onclick="scegliFormula();">Scegli formula</button>
+    <p>Risultato: <b id="output"></b></p>
+
+    <script>
+        function scegliFormula() {
+            let numeroFormula = Number(document.getElementById("numeroFormula").value);
+
+            if ( numeroFormula === 1) { //V=I⋅R
+                document.getElementById("datiAggiuntivi").innerHTML = '<input id="varI" type="number" placeholder="Valore di I"><br><input id="varR" type="number" placeholder="Valore di R"><br>';
+            } else if ( numeroFormula === 2 ) { //I=V/R​
+
+            }
+        }
+    </script>
+</body>
+</html>
