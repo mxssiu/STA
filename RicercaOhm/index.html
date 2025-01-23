@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legge di Ohm</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        h1, h2, h3, p {
+            font-family: sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Legge di Ohm</h1><br>
+        <h3>Prima legge di Ohm</h3>
+        <p>L'intensità di corrente (I) in un conduttore è direttamente proporzionale alla tensione (V) ad esso applicata ed inversamente proporzionale alla resistenza (R) del circuito stesso</p>
+        <img src="mappa.png" alt="Mappa Concettuale"><br>
+        <h3>Biografia su Georg Ohm</h3>
+        <div style="padding: 15px; display: flex;">
+        <img src="ohm.jpg" alt="Ohm" width="15%" height="auto">
+        <p><b>Georg Simon Alfred Ohm</b>, nato il <b>16 marzo 1789</b>, è stato un fisico e matematico tedesco. <br>
+            Come insegnante di scuola superiore, Ohm iniziò la sua ricerca con la nuova cella elettrochimica, inventata dallo scienziato italiano Alessandro Volta.<br>
+            Utilizzando attrezzature di sua creazione, Ohm si accorse che esiste una <b>proporzionalità diretta</b> tra la differenza di potenziale applicata attraverso un conduttore e la corrente elettrica risultante.<br>
+            Questa relazione è nota come <b>legge di Ohm</b></p>
+        </div>
+
+        <div>
+            <h2>Applicativo Calcolo Legge di Ohm</h2>
+            <p>Formule: 
+                <br>1. <b>Calcolo Tensione</b>
+                <br>2. <b>Calcolo Intensità corrente</b>
+                <br>3. <b>Calcolo resistenza</b>
+            
+            </p>
+            <p><input type="number" id="numeroFormula" placeholder="Numero formula da usare"><button class="w3-button w3-black" onclick="scegliFormula();">Scegli formula</button></p>
+            <div id="datiAggiuntivi"></div>
+
+            <script>
+                function calcola() {
+                    let i = document.getElementById("varI");
+                    let r = document.getElementById("varR");
+                    let v = document.getElementById("varV");
+        
+                    if (i && r) {
+                        let sol = Number(i.value) * Number(r.value);
+                        document.getElementById("output").innerHTML = "V = " + i.value + " * " + r.value + " = " + sol;
+                    }
+        
+                    if (v && r) {
+                        let sol = Number(v.value) / Number(r.value);
+                        document.getElementById("output").innerHTML = "I = " + v.value + " : " + r.value + " = " + sol;
+                    }
+        
+                    if (v && i) {
+                        let sol = Number(v.value) / Number(i.value);
+                        document.getElementById("output").innerHTML = "R = " + v.value + " : " + i.value + " = " + sol;
+                    }
+                    
+                }
+        
+                function scegliFormula() {
+                    let numeroFormula = Number(document.getElementById("numeroFormula").value);
+        
+                    if ( numeroFormula === 1) { //V=I⋅R
+                        document.getElementById("datiAggiuntivi").innerHTML = '<input id="varI" type="number" placeholder="Valore di I"><br><input id="varR" type="number" placeholder="Valore di R"><br><button class="w3-button w3-black" onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
+                    } else if ( numeroFormula === 2 ) { //I=V/R​
+                        document.getElementById("datiAggiuntivi").innerHTML = '<input id="varV" type="number" placeholder="Valore di V"><br><input id="varR" type="number" placeholder="Valore di R"><br><button class="w3-button w3-black" onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
+                    } else if ( numeroFormula === 3 ) { //R=V/I
+                        document.getElementById("datiAggiuntivi").innerHTML = '<input id="varV" type="number" placeholder="Valore di V"><br><input id="varI" type="number" placeholder="Valore di I"><br><button class="w3-button w3-black" onclick="calcola();">Calcola</button><br><p>Risultato: <b id="output"></b></p>';
+                    } else {
+                        document.getElementById("datiAggiuntivi").innerHTML = "<b>Inserisci un numero da 1 a 3</b>";
+                    }
+                }
+            </script>
+        </div>
+    </center>
+</body>
+</html>
