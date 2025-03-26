@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Conduttore-Semiconduttore-Isolante</title>
+</head>
+<body>
+    <h1>Calcolo Conduttore-Semiconduttore-Isolante</h1>
+
+    <div>
+        <p>
+            Teoria: per determinare se un elemento è un conduttore, semiconduttore o isolante
+            a partire dal numero atomico, devi considerare la struttura elettronica dell'elemento e
+            il suo posizionamento nella tavola periodica.
+        </p>
+
+        <h2>1. Identificare il gruppo e il periodo nella tavola periodica</h2>
+        <ul>
+            <li>Gli elementi metallici (gruppi 1-12 e alcuni del gruppo 13-16) sono in genere buoni conduttori.</li>
+            <li>I non metalli (gruppi 14-18) tendono ad essere isolanti.</li>
+            <li>I semi metalli (metalloidi) spesso sono semiconduttori.</li>
+        </ul>
+
+        <h2>2. Considerare la configurazione elettronica</h2>
+        <ul>
+            <li>Gli elementi con pochi elettroni di valenza (1-3) tendono a essere buoni conduttori perché
+                gli elettroni sono liberi di muoversi (es. Rame, Argento, Alluminio).
+            </li>
+            <li>Gli elementi con 4 elettroni di valenza (es. Silicio e Germanio) sono semiconduttori perché
+                il legame covalente limita il movimento degli elettroni a temperatura ambiente.
+            </li>
+            <li>Gli elementi con molti elettroni di valenza (5-8) sono isolanti, perché i loro
+                elettroni sono fortemente legati al nucleo.
+            </li>
+        </ul>
+
+        <h2>3. Analizzare la banda di conduzione e la banda proibita</h2>
+        <ul>
+            <li>Conduttori: gli elettroni possono muoversi facilmente perché la banda di conduzione
+                è sovrapposta alla banda di valenza (es. metalli).
+            </li>
+            <li>Semiconduttori: hanno una piccola banda proibita (0.1 - 3 eV), quindi possono
+                condurre elettricità in certe condizioni.
+            </li>
+            <li>Isolanti: hanno una banda proibita molto ampia (> 3 eV), quindi non conducono elettricità.</li>
+        </ul>
+
+        <h2>Conclusione</h2>
+        <ul>
+            <li>Se il numero atomico indica un metallo, è probabilmente un conduttore.</li>
+            <li>Se è un semimetallo, indica un semiconduttore (es. Silicio, Germanio).</li>
+            <li>Se è un non metallo, è probabilmente un isolante.</li>
+        </ul>
+
+        <p><strong>Prompt di approfondimento:</strong> Spiegami che cos'è la banda proibita, la banda di valenza e la banda di conduzione.</p>
+    </div>
+
+    <div>
+        <form id="MioFormInput">
+            <input type="number" required id="input" placeholder="Inserisci il numero atomico">
+            <button type="submit">Ricerca dati del numero atomico</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const periodicTable = [
+            { number: 1, symbol: "H", name: "Idrogeno", configuration: "1s1" },
+            { number: 2, symbol: "He", name: "Elio", configuration: "1s2" },
+            { number: 3, symbol: "Li", name: "Litio", configuration: "1s2 2s1" },
+            { number: 4, symbol: "Be", name: "Berillio", configuration: "1s2 2s2" },
+            { number: 5, symbol: "B", name: "Boro", configuration: "1s2 2s2 2p1" },
+            { number: 6, symbol: "C", name: "Carbonio", configuration: "1s2 2s2 2p2" },
+            { number: 7, symbol: "N", name: "Azoto", configuration: "1s2 2s2 2p3" },
+            { number: 8, symbol: "O", name: "Ossigeno", configuration: "1s2 2s2 2p4" },
+            { number: 9, symbol: "F", name: "Fluoro", configuration: "1s2 2s2 2p5" },
+            { number: 10, symbol: "Ne", name: "Neon", configuration: "1s2 2s2 2p6" },
+            { number: 11, symbol: "Na", name: "Sodio", configuration: "1s2 2s2 2p6 3s1" },
+            { number: 12, symbol: "Mg", name: "Magnesio", configuration: "1s2 2s2 2p6 3s2" },
+            { number: 13, symbol: "Al", name: "Alluminio", configuration: "1s2 2s2 2p6 3s2 3p1" },
+            { number: 14, symbol: "Si", name: "Silicio", configuration: "1s2 2s2 2p6 3s2 3p2" },
+            { number: 15, symbol: "P", name: "Fosforo", configuration: "1s2 2s2 2p6 3s2 3p3" }
+        ];
+
+        document.getElementById("MioFormInput").addEventListener("submit", function(event) {
+            event.preventDefault();
+           
+            const input = document.getElementById("input");
+            const result = document.getElementById("result");
+            const atomicNumber = parseInt(input.value);
+
+            const element = periodicTable.find(el => el.number === atomicNumber);
+           
+            if (element) {
+                result.textContent = `Numero Atomico: ${element.number}, Simbolo: ${element.symbol}, Nome: ${element.name}, Configurazione Elettronica: ${element.configuration}`;
+            } else {
+                result.textContent = "Elemento non trovato.";
+            }
+        });
+    </script>
+</body>
+</html>
