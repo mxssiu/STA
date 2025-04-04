@@ -4,18 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcolatore di Dazi</title>
+    <style>
+        /* palette: https://colorhunt.co/palette/070f2b1b1a55535c919290c3 */
+        body {
+            background-color: #070F2B;
+        }
+        
+        h1, b, p {
+            color: #9290C3;
+            font-family: sans-serif;
+        }
+
+        input {
+            background-color: transparent;
+            font-size: 25px;
+            color: white;
+        }
+
+        #definizione {
+            background-color: #1B1A55;
+            width: 40%;
+            height: 60%;
+            border-radius: 10px;
+        }
+
+        #daziCalc {
+            background-color: #535C91;
+            width: 17%;
+            height: 35px;
+            border-radius: 10px;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        table, th, td {
+            border: 0.5px solid #9290C3;
+            color: white;
+            width: 17%;
+            font-family: sans-serif;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Calcolatore di Dazi</h1>
-    <!--- Tabella dazi -->
+    <center>
+        <h1>Calcolatore di Dazi</h1>
 
-    <!-- Form per raccogliere i dati -->
-    <div id="formCalcolo">
-        <input type="number" id="amount" placeholder="Cifra (EUR)"><br>
-        <input type="number" id="ricarico" placeholder="Ricarico (EUR)"><br>
-        <input type="number" id="percent" placeholder="Percentuale (%)" value="20"><br>
-        <!-- Output della percentuale -->
-        <input type="number" id="output" value="0" disabled><br>
-    </div>
+        <div id="definizione"><br>
+            <b>Definizione di dazio</b><br>
+           <p>Un dazio di esportazione è una tassa sull'esportazione di merci all'estero che può avere lo scopo di preservare le aziende locali da concorrenti esteri</p><br>
+        </div><br>
+        <!--- Tabella dazi -->
+        <table>
+            <tr>
+              <th>Paese</th>
+              <th>Percentuale</th>
+            </tr>
+            <tr>
+              <td>Cina</td>
+              <td>7,5%</td>
+            </tr>
+            <tr>
+              <td>America</td>
+              <td>1,2% - 20%</td>
+            </tr>
+            <tr>
+                <td>Giappone</td>
+                <td>2,5%</td>
+            </tr>
+            <tr>
+                <td>Brasile</td>
+                <td>18%</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>10%</td>
+            </tr>
+          </table>
+
+        <!-- Form per raccogliere i dati -->
+         <br>
+        <div id="formCalcolo">
+            <input type="number" id="amount" placeholder="Cifra (EUR)"><br>
+            <input type="number" id="ricarico" placeholder="Ricarico (EUR)"><br>
+            <input type="number" id="percent" placeholder="Percentuale (%)" value="20"><br>
+            <!-- Output della percentuale -->
+            <input type="number" id="output" value="0" disabled><br><br>
+            <button id="daziCalc" onclick="calcolaDazi();">CALCOLA</button>
+        </div>
+    </center>
+
+    <script>
+        function calcolaDazi() {
+            // Ottengo i valori dagli input
+            let amount = Number(document.getElementById("amount").value);
+            let ricarico = Number(document.getElementById("ricarico").value);
+            let perc = Number(document.getElementById("percent").value);
+            
+            // Controllo se sono stati forniti tutti i dati
+            if ( amount && ricarico && perc ) {
+
+                let total = amount+ricarico;
+                let percent = (total/100)*perc;
+
+                document.getElementById("output").value = percent;
+            } else {
+                // Se l'utente non ha compilato tutti i dati
+                alert("Compilare tutti i campi");
+            }
+        }
+    </script>
 </body>
 </html>
