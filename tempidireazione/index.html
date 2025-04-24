@@ -43,5 +43,38 @@
         <button id="btn4" class="color-button"></button>
     </div>
 
+    <script>
+        function cambiaColori() {
+            let colore = null;
+            let tempoRed = null;
+
+            const colors = ["red", "blue", "yellow", "green", "purple", "white", "black"];
+
+            let casuale = (Math.floor(Math.random()*4));
+            document.getElementById("btn1").style.backgroundColor = colors[casuale];
+
+            let casuale2 = (Math.floor(Math.random()*4));
+            document.getElementById("btn2").style.backgroundColor = colors[casuale2];
+
+            let casuale3 = (Math.floor(Math.random()*4));
+            document.getElementById("btn3").style.backgroundColor = colors[casuale3];
+
+            let casuale4 = (Math.floor(Math.random()*4));
+            document.getElementById("btn4").style.backgroundColor = colors[casuale4];
+
+            if(casuale === 0) {
+                tempoRed = Date.now();
+                console.log(tempoRed);
+
+            }
+
+        }
+    
+        // setInterval() ha come primo parametro la funzione che deve essere eseguita
+        // come secondo parametro indichiamo il tempo in millisecondi (ms) quando la funzione (primo parametro) viene eseguita
+        // 1000 ms = 1s
+        setInterval(cambiaColori, 1000);
+    </script>
+
 </body>
 </html>
